@@ -1,6 +1,6 @@
 package generic.ex1;
 
-public class RowTypeMain {
+public class RawTypeMain {
 
     public static void main(String[] args) {
         GenericBox integerBox = new GenericBox();
