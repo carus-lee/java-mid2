@@ -1,0 +1,7 @@
+# IDE 설정 파일 무시
+.idea/
+*.iml
+
+#폴더
+/out
+/src/out
