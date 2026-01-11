@@ -6,7 +6,7 @@ import generic.animal.Dog;
 
 public class WildcardMain1 {
     public static void main(String[] args) {
-        Box<Object> obj = new Box<>();
+        Box<Object> objBox = new Box<>();
         Box<Dog> dogBox = new Box<>();
         Box<Cat> catBox = new Box<>();
 
