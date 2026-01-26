@@ -2,18 +2,18 @@ package collection.array;
 
 import java.util.Arrays;
 
-public class MyArrayV1 {
+public class MyArrayListV1 {
 
     private static final int DEFAULT_CAPACITY = 5;
 
     private Object[] elementData;
     private int size = 0;
 
-    public MyArrayV1() {
+    public MyArrayListV1() {
         elementData = new Object[DEFAULT_CAPACITY];
     }
 
-    public MyArrayV1(int initialCapacity) {
+    public MyArrayListV1(int initialCapacity) {
         elementData = new Object[initialCapacity];
     }
 

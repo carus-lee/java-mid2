@@ -2,7 +2,7 @@ package collection.array;
 
 public class MyArrayListV1Main {
     public static void main(String[] args) {
-        MyArrayV1 list = new MyArrayV1();
+        MyArrayListV1 list = new MyArrayListV1();
         System.out.println("==데이터 추가");
         System.out.println(list);
         list.add("a");
