@@ -1,4 +1,4 @@
-package collection.list.test;
+package collection.list.test.ex1;
 
 /**
  *  문제와 풀이 1-1
