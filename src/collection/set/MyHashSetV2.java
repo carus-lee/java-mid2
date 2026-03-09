@@ -3,21 +3,21 @@ package collection.set;
 import java.util.Arrays;
 import java.util.LinkedList;
 
-public class MyHashSetV1 {
+public class MyHashSetV2 {
 
     static final int DEFAULT_INITIAL_CAPACITY = 16;
 
-    private LinkedList<Integer>[] buckets;
+    private LinkedList<Object>[] buckets;
 
     private int size = 0;
     private int capacity = DEFAULT_INITIAL_CAPACITY;
 
     // 기본 생성자
-    public MyHashSetV1() {
+    public MyHashSetV2() {
         initBuckets();
     }
 
-    public MyHashSetV1(int capacity) {
+    public MyHashSetV2(int capacity) {
         this.capacity = capacity;
         initBuckets();
     }
@@ -29,9 +29,9 @@ public class MyHashSetV1 {
         }
     }
 
-    public boolean add(int value) {
+    public boolean add(Object value) {
         int hashindex = hashindex(value);
-        LinkedList<Integer> bucket = buckets[hashindex];
+        LinkedList<Object> bucket = buckets[hashindex];
         // 중복 체크
         if (bucket.contains(value)) {
             return false;
@@ -42,19 +42,16 @@ public class MyHashSetV1 {
         return true;
     }
 
-    public boolean contains(int searchValue) {
+    public boolean contains(Object searchValue) {
         int hashindex = hashindex(searchValue);
-        LinkedList<Integer> bucket = buckets[hashindex];
+        LinkedList<Object> bucket = buckets[hashindex];
         return bucket.contains(searchValue);
     }
 
-    public boolean remove(int value) {
+    public boolean remove(Object value) {
         int hashindex = hashindex(value);
-        LinkedList<Integer> bucket = buckets[hashindex];
-        // remove 메서드 2개 제공 (2번으로 사용해야 됨)
-        // 1) 인덱스로 삭제하는 기능
-        // 2) 값을 찾아서 삭제하는 기능
-        boolean isRemove = bucket.remove(Integer.valueOf(value));
+        LinkedList<Object> bucket = buckets[hashindex];
+        boolean isRemove = bucket.remove(value);
         if (isRemove == true) {
             size--;
             return true;
@@ -62,8 +59,10 @@ public class MyHashSetV1 {
         return false;
     }
 
-    private int hashindex(int value) {
-        return value % capacity;
+    private int hashindex(Object value) {
+        // Object.hashCode()는 정수형이므로 음수가 나올 수 있다.
+        // 따라서 절대값으로 처리
+        return Math.abs(value.hashCode()) % capacity;
     }
 
     public int getSize() {
@@ -72,7 +71,7 @@ public class MyHashSetV1 {
 
     @Override
     public String toString() {
-        return "MyHashSetV1{" +
+        return "MyHashSetV2{" +
                 "buckets=" + Arrays.toString(buckets) +
                 ", size=" + size +
                 ", capacity=" + capacity +
